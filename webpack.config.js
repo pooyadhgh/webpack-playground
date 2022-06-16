@@ -33,6 +33,17 @@ module.exports = {
         test: /\.(scss|sass)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      // Babel
+      {
+        test: /\.js$/,
+        exclude: 'node_modules',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
     ],
   },
 };
