@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack serve --hot"
+    "dev": "webpack serve --hot",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,12 @@
   "homepage": "https://github.com/pooyadhgh/webpack-config#readme",
   "devDependencies": {
     "@babel/core": "^7.18.5",
+    "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^8.17.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.52.3",
