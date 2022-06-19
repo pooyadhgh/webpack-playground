@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 const pages = [
   {
@@ -30,13 +31,13 @@ const webpackConfiguration = {
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: 'http://localhost:9002/',
   },
 
   mode: 'none',
 
   devServer: {
-    port: 9001,
+    port: 9002,
     static: {
       directory: path.resolve(__dirname, './dist'),
     },
@@ -84,11 +85,17 @@ const webpackConfiguration = {
 
   // Plugins
   plugins: [
+    ...htmlWebpackPlugins,
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new CleanWebpackPlugin(),
-    ...htmlWebpackPlugins,
+    new ModuleFederationPlugin({
+      name: 'HelloAnotherWorldApp',
+      remotes: {
+        HelloWorldApp: 'HelloWorldApp@http://localhost:9001/remoteEntry.js',
+      },
+    }),
   ],
 };
 
