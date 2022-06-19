@@ -1,5 +1,5 @@
 {
-  "name": "webpack-config",
+  "name": "webpack-playground",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pooyadhgh/webpack-config.git"
+    "url": "git+https://github.com/pooyadhgh/Webpack-Playground.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pooyadhgh/webpack-config/issues"
+    "url": "https://github.com/pooyadhgh/Webpack-Playground/issues"
   },
-  "homepage": "https://github.com/pooyadhgh/webpack-config#readme",
+  "homepage": "https://github.com/pooyadhgh/Webpack-Playground#readme",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",

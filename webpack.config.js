@@ -1,17 +1,17 @@
-const path = require("path");
+const path = require('path');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const pages = [
   {
-    title: "Hello world",
-    path: "index",
+    title: 'Hello world',
+    path: 'index',
   },
   {
-    title: "About us",
-    path: "about",
+    title: 'About us',
+    path: 'about',
   },
 ];
 
@@ -32,20 +32,20 @@ const webpackConfiguration = {
   entry: entries,
 
   output: {
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "./dist"),
-    publicPath: "",
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '',
   },
 
-  mode: "none",
+  mode: 'none',
 
   devServer: {
     port: 9000,
     static: {
-      directory: path.resolve(__dirname, "./dist"),
+      directory: path.resolve(__dirname, './dist'),
     },
     devMiddleware: {
-      index: "index.html",
+      index: 'index.html',
       writeToDisk: true,
     },
   },
@@ -55,7 +55,7 @@ const webpackConfiguration = {
     rules: [
       {
         test: /\.(png|jpg|gif)$/i,
-        type: "asset",
+        type: 'asset',
         parser: {
           dataUrlCondition: {
             maxSize: 3 * 1024, // 3KB
@@ -66,20 +66,20 @@ const webpackConfiguration = {
       // Loaders
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(scss|sass)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       // Babel
       {
         test: /\.js$/,
-        exclude: "/node_modules/",
+        exclude: '/node_modules/',
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -89,7 +89,7 @@ const webpackConfiguration = {
   // Plugins
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
     new CleanWebpackPlugin(),
     ...htmlWebpackPlugins,
